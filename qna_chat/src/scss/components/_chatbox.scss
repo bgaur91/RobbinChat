@@ -1,0 +1,168 @@
+.chatbox {
+    flex-basis: 60%;
+    position: relative;
+    box-shadow: 0px 6px 55px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: $white-base;
+    @include grid(grid, null, null, null, 1fr auto);
+    padding-bottom: 30px;
+    height: calc(100% - 103px);
+
+    &-mob {
+        &-mobile {
+            display: none;
+        }
+    }
+    
+    &-msg {
+        overflow: auto;
+        padding: 24px 30px;
+    }
+
+    &_header {
+        @include flex(flex, null, center, center);
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    h2 {
+        color: $grey-verylight;
+        line-height: 37px;
+        margin: 0 auto;
+    }
+
+    &_chats {
+        margin-bottom: 23px;
+        border-bottom: 1px solid $grey-light;
+
+        p {
+            color: $black-medium;
+            padding-bottom: 26px;
+            padding-top: 3px;
+        }
+
+        &-item {
+            @include flex(flex, wrap, space-between);
+
+            h3 {
+                text-transform: uppercase;
+                color: $grey-base;
+            }
+        }
+    }
+
+    &_type {
+        @include flex(flex, wrap, space-between, center);
+        @include width_height(58px);
+        border: 1px solid $border-blue;
+        margin: 0 30px;
+        border-radius: 10px;
+        padding: 0 20px;
+
+        &-voice {
+            @include flex (flex, null, null, null, 34px);
+            position: relative;
+
+            &:after {
+                content: "";
+                width: 1px;
+                height: 48px;
+                background-color: $border-blue;
+                position: absolute;
+                right: 27px;
+                top: -16px;
+            }
+
+            &-pulse {
+                animation: pulse-animation 2s infinite;
+                border-radius: 50%;
+            }
+
+            @keyframes pulse-animation {
+                0% {
+                    box-shadow: 0 0 0 0px rgb(123 182 252 / 40%)
+                }
+
+                100% {
+                    box-shadow: 0 0 0 20px rgb(123 182 252 / 0%);
+
+                }
+            }
+        }
+
+        &-icon {
+            @include width_height(58px, 25%);
+            @include flex(flex, null, null, center, 20px);
+
+            svg {
+                @include width_height(18px, 18px);
+            }
+
+            &-send {
+                @include flex(flex, null, space-between, center, 10px);
+                border-left: 1px solid $border-blue;
+                height: 48px;
+                padding-left: 20px;
+            }
+        }
+
+        &-inputtext::placeholder {
+            color: $black-light;
+        }
+
+        svg {
+            @include width_height(16px, 16px);
+        }
+
+        span {
+            color: $black-light;
+        }
+    }
+
+    input[type="text"] {
+        @include width_height(54px, 75%);
+        border: none;
+        outline: none;
+    }
+}
+
+.mainchat {
+    flex-basis: 60%;
+
+    &-attach {
+        background-color: $white-base;
+        padding: 18px 32px 18px 32px;
+        margin-bottom: 4px;
+        border-radius: 4px;
+        box-shadow: 0px 6px 55px rgba(0, 0, 0, 0.1);
+
+        h3 {
+            color: $grey-base;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        &-group {
+            @include flex (flex, null, null, null, 18px);
+
+            &-file {
+                @include flex (flex, null, space-between, center, null);
+                @include width_height(39px, 50%);
+                background: $background-bg;
+                padding: 10px 7px;
+                border-radius: 4px;
+
+                input[type='file'] {
+                    opacity: 0;
+
+                }
+
+                svg {
+                    width: 23px;
+                    height: 21px;
+                }
+            }
+        }
+
+    }
+}

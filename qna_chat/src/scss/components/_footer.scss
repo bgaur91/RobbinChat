@@ -1,0 +1,19 @@
+footer{
+  color: $grey-base;
+  text-align: center;
+  padding: 34px 0;background-color: $background-bg;
+  a{
+    color: $blue-base;
+    margin-left: 5px;
+  }
+
+  @include device(sm-phone){
+    padding: 10px 0;
+
+    a{
+      display: none;
+    }
+  }
+}
+
+
